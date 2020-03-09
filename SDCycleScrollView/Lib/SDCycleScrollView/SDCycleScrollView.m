@@ -643,6 +643,9 @@ NSString * const ID = @"SDCycleScrollViewCell";
         UIPageControl *pageControl = (UIPageControl *)_pageControl;
         pageControl.currentPage = indexOnPageControl;
     }
+    if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:didScrollToIndex:)]) {
+        [self.delegate scrollViewDidScroll:self didScrollToIndex:indexOnPageControl];
+    }
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
